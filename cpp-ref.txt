@@ -1,0 +1,315 @@
+auto x = 5 //type auto is int
+decltype(variable/function) //type decltype is int 
+
+for(int i:array) cout << ' ' << i // for i in array;
+for(auto& x:vector) cout <<' ' ' << x 
+
+CONVERT TYPE
+
+    >> int to char
+        char c = int + '0'
+    >> char to int 
+        int x = 'c'- '0' //convert '4' -> 4
+        int ia = (int)'a'; //for read ascii
+
+    >> char to string 
+        string s = carr //char array
+        string s(1,c)
+        string s.push_back(c)
+    >> string to char
+        char c[s.length()+1];//char *c = new char[s.length()+1]; strcpy(c,s.c_str())
+    >> int to string
+        string s = to_string(i);
+        char *intStr=tioa(i);string s = string(intStr)
+
+    >> string to int
+        int i = stoi(s.c_str());
+        c++11 >> int i = stoi(s)
+
+LIBRARY
+    CMATH  
+        >> cos(x),sin,tan,acos,asin,atan,
+        >> exp,log,log10,log2
+        >> pow(x,const),sqrt(x)
+        >> ceil(x) // up 
+        >> floor(x) //down
+        >> round(x) // round near x
+        >> abs        
+
+    ALGORITHM
+        >> copy
+            int myints[]={10,20,30,40,50,60,70};
+            vector<int> myvector (7);
+            copy ( myints, myints+7, myvector.begin() ); >> [10,20,30,...]
+
+        >> find 
+            find(itr begin,itr end,value) //[start,end) if not found return itr.end() else return Itr you have to use poiter to point Itr
+            int* p = find(...)
+            cout << *p
+
+        >> max/min/minmax
+            auto result = std::minmax({1,2,3,4,5}
+            result.first >> 1
+            result.second >> 5
+
+        >> max_element/min_element/minmax_element
+            int myints[] = {3,7,2,5,6,4,9};
+            auto mn = min_element(myints,myints+7);
+            auto mx = max_element(myints,myints+7);
+            cout << *mn << *mx
+
+            array<int,7> foo {3,7,2,9,5,8,6};
+            auto result = minmax_element (foo.begin(),foo.end());
+            result.first >> 2
+            result.second >> 9
+
+        >> sort
+            sort(vector.begin(), vector.end); //[first,end)
+
+        >> merge
+            int first[] = {5,10,15,20,25};
+            int second[] = {50,40,30,20,10};
+            vector<int> v(10);
+            sort (first,first+5);
+            sort (second,second+5);
+            merge(first,first+5,second,second+5,v.begin());
+
+        >> remove
+            int* p = remove(itr begin,itr end,value) //[start,end])
+        >> replace
+            vector<int> myvector >> assume [10,20,30,30,20,10,10,20]
+            replace (myvector.begin(), myvector.end(), 20, 99); >> 10 99 30 30 99 10 10 99  //[start,end)
+
+        >> reverse
+            reverse(vector.begin(),vector.end())
+
+        >> swap
+            swap(x,y) //don't include ALGORITHM
+            swap(vector a,vector b)         
+    
+    ITREATOR
+
+        >> distance
+            distance(itr first,itr last) //return distance between first and last
+
+        >> begin
+        >> end 
+
+    STRING
+        >>size/length
+            str.size()/str.length()
+
+        >>clear
+            str.clear
+
+        >>empty
+            str.empty()
+        
+        >>find
+            str.find(val)
+
+        >>rfind
+            str.rfind(val)
+
+        >>front
+            str.front() // return referrence first character
+        >>back
+            str.back() // return referrence last character you can 'cout' or change value of back character
+        
+        >>append
+            string str;
+            string str2="Writing ";
+            string str3="print 10 and then 5 more";
+
+            str.append(str2);                       // "Writing "
+            str.append(str3,6,3);                   // "10 "
+            str.append("dots are cool",5);          // "dots "
+            str.append(10u,'.');                    // ".........."
+            str.append(str3.begin()+8,str3.end());  // " and then 5 more"
+
+        >>assign
+
+        >>insert
+
+        >>push_back
+            str.push_back(value);
+
+        >>pop_back
+            str.pop_back();
+
+        >>erase
+
+        >>replace
+
+        >>swap
+
+        >>c_str
+
+        >>data
+        
+        >>copy
+
+        iterator
+            >>begin/end
+            >>rbegin/rend
+
+
+
+CONTAINER
+
+    VECTOR  (vector<int> my,vector<int>::iterator itr) 
+        std::vector<type> var (num,value)
+            vector<int> my (5) >> size 5 
+            vector<int> my (3,0) >> [0,0,0] initial value for your vector
+            vector<int> my2 (my) >> copy my
+            vector<int> my3 (my.begin(),my.end()); 
+
+        std::vector<int>::iterator var //address in construct of vector 
+            std::vector<int>::iterator itr = my.begin()  // plus or minus number for move iterator
+            for(itr=my.begin();itr < my.end();itr++);
+                std::cout<< *itr;
+
+        std::vector<int>::reverse_iterator rit //case: reverse iterator
+
+        >> assign
+            my.assign(num,value); // assign "my" num ints with a value
+            my.assign(itr,itr+10) // assign "my" with iterator from vector or array; [start,end)
+
+            vector<int> my,my2 >>[]
+            my.assign(2,100) >> [100,100]
+            my2.assign(my.begin(),my.end()-1) >> [100]
+
+        >> data
+            my.data() // return a poiter pointing first element by vector
+
+            vector<int> my (5) =[0,0,0,0,0]
+            int* p = my.data();
+            *p = 10
+            ++p;
+            *p = 20 //p still point to 20 (2nd element)
+            p[2] = 100 >> [10,20,0,100,0] 
+
+
+        >> begin / end 
+            my.begin() / my.end() //return first and last iterator
+            
+            vector<int> my (5);
+            int i=0;
+            for (vector<int>::reverse_iterator rit = my.rbegin(); rit!= my.rend(); ++rit)
+                *rit = ++i;
+            >> [5 4 3 2 1 0]
+
+        >> rbegin / rend
+            my.rbegin() / my.rend() //return iterator pointing to the last/first element in the vector
+
+        
+        >> push_back
+            my.push_back(value) // push to back vector
+        
+        >> back 
+            my.back() // return last element
+        
+        >> pop_back
+            my.pop_back() // remove last element
+        
+        >> front
+            my.front() // return first element
+        
+        >> insert
+            my.insert(itr,value) //insert value at itr position
+            my.insert(itr,size,value) //insert size(1,2,3,...) value at itr position
+            my.insrt(itr,itr2 start,itr2 end) >>  // range [start,end)
+            
+            vector<int> my (2,400) >> [400,400]
+            my.insert(my.begin()+1,3,100) >> [400,100,100,100,400] 
+            int arr = {1,2,3}
+            my.insert(my.begin(),arr,arr+3) >> [1,2,3,400,100,...]
+
+        >> erase
+            my.erase(itr) // remove element at itr position from my vector
+            my.erase(itr first,itr last) // range [start,end)
+        
+        >> clear 
+            my.clear() //clear vector
+
+        >> size
+            my.size() // return size of vector
+            
+            my >> [] >> size = 0
+            my.push_back(1) >> size = 1
+
+        >> empty
+            my.empty(); //check empty if vector is empty true(1)
+
+        >> swap
+            my.swap(my2) //swap vector between my and my2
+        
+    LIST
+        std::list<type> var //same list
+
+        >>assign
+        >>begin / end
+        >>rbegin / rend
+        >>push_back
+        >>back
+        >>pop_back
+        >>push_front
+        >>front
+        >>pop_front
+        >>insert
+        >>erase
+        >>clear
+        >>size
+        >>empty
+        >>swap
+        //same vector
+
+        >>unique
+            my.unique() //remove duplicate element but you have to sort "my" vector before to do that
+
+        >>reverse
+            my.reverse() //reverse element
+
+        >>sort
+            my.sort() //sort element in vector
+
+        >>merge
+            my = [2.2,2.9,3.1]
+            my2 = [1.4,3.7,7.1]
+            my.merge(my2) //my2 is empty >>[1.4,2.2,2.9,3.1,3.7,7.1]
+        
+    STACK
+        >> empty
+        >> pop
+        >> push
+        >> size
+        >> top
+            mystack.top() // return top element in stack
+
+        --c++11--
+        >> swap
+            stk1.swap(stk2) //swap stack
+
+        >> emplace
+
+    QUENE
+        >> empty
+        >> pop
+        >> push
+        >> size
+        >> front
+        >> back
+
+        --c++11--
+        >> swap
+            stk1.swap(stk2) //swap stack
+
+        >> emplace
+
+    MAP
+    //same dic(key,value)
+
+
+
+        
+
